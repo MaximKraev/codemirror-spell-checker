@@ -15,14 +15,17 @@ var banner = ['/**',
 
 gulp.task('scripts', function() {
 	var js_files = [
+		'./src/js/banner.js',
 		'./src/js/typo.js',
-		'./src/js/spell-checker.js'];
+		'./src/js/spell-checker.js',
+		'./src/js/footer.js'
+		];
 
 	return gulp.src(js_files)
 		.pipe(header(banner, {pkg: pkg}))
 		.pipe(concat('spell-checker.min.js'))
 		.pipe(gulp.dest('dist'))
-		.pipe(uglify())
+//		.pipe(uglify())
 		.pipe(header(banner, {pkg: pkg}))
 		.pipe(gulp.dest('dist'));
 });
